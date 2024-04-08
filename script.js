@@ -52,36 +52,61 @@ optionMenus.forEach((optionMenu) => {
 });
 
 // for about more section
-const iconSmallElements = document.querySelectorAll('.has-child .icon-small');
+const iconSmallElements = document.querySelectorAll(".has-child .icon-small");
 
-iconSmallElements.forEach(iconSmall => {
-    iconSmall.addEventListener('click', function(e) {
-        e.preventDefault();
-        const content = this.parentElement.querySelector('.content');
-        content.classList.toggle('visible');
-        
-        const icon = this.querySelector('svg');
-        icon.classList.toggle('rotated');
-    });
+iconSmallElements.forEach((iconSmall) => {
+  iconSmall.addEventListener("click", function (e) {
+    e.preventDefault();
+    const parent = this.parentElement;
+    if (!parent) return;
+
+    const content = parent.querySelector(".content");
+    if (content) {
+      content.classList.toggle("visible");
+    }
+
+    const icon = this.querySelector("svg");
+    if (icon) {
+      icon.classList.toggle("rotated");
+    }
+  });
 });
 
 
 
-//  for Menu
-function copyMenu() {
-  // copy inside .dpt-cat to .departments
-  var dptCategory = document.querySelector(".dpt-cat");
-  var dptPlace = document.querySelector(".departments");
-  dptPlace.innerHTML = dptCategory.innerHTML;
 
-  // copy inside nav to nav
-  var mainNav = document.querySelector(".header-nav nav");
-  var navPlace = document.querySelector(".off-canvas nav");
-  navPlace.innerHTML = mainNav.innerHTML;
 
-  // copy .header-top .wrapper to .thetop-nav
-  var topNav = document.querySelector(".header-top .wrapper");
-  var topPlace = document.querySelector(".off-canvas .thetop-nav");
-  topPlace.innerHTML = topNav.innerHTML;
-}
-copyMenu();
+
+
+// menubar
+document.addEventListener("DOMContentLoaded", function () {
+  var menuIcon = document.querySelector(".menuIcon");
+  var menuBar = document.querySelector(".menuBar");
+  var body = document.querySelector("body");
+
+  menuIcon.addEventListener("click", function () {
+    if (menuBar.classList.contains("visible")) {
+      menuBar.classList.remove("visible");
+      body.classList.remove("menuBarVisible");
+    } else {
+      menuBar.classList.add("visible");
+      body.classList.add("menuBarVisible");
+    }
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!menuBar.contains(event.target) && !menuIcon.contains(event.target)) {
+      menuBar.classList.remove("visible");
+      body.classList.remove("menuBarVisible");
+    }
+  });
+
+  menuBar.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+});
+
+
+
+
+
