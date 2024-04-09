@@ -1708,24 +1708,25 @@ button {
 .menuBar .wrapper {
   position: absolute;
   z-index: 1000;
-  top: 0;
-  right: 0;
+  top: -.03em;
+  right: .05em;
   background-color: var(--secondary-color);
   color: var(--primary-color);
   display: flex;
   padding: 2em;
-  justify-content: right;
-  max-width: 400px;
+  justify-content: space-between;
+  width: 300px;
+  flex: 1;
   height: 100dvh;
   border-radius: 0 0 0 20px;
-  box-shadow: -15px 5px 15px rgba(0, 0, 0, 0.2);
-  flex: 1;
+  /* box-shadow: -15px 5px 15px rgba(0, 0, 0, 0.2); */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
 }
 
-.menuBar .wrapper {
-  /* right: -300px; */
-  transition: right 0.3s ease;
+.menuBar .wrapper .menu {
+  
+  width: 100%;
 }
 
 .menuBar .icon-small {
@@ -1764,8 +1765,7 @@ button {
   padding: .3em;
   line-height: 1.5;
 }
-
-
+  
 
 .menuBar .icon{
   display: flex;
@@ -1773,7 +1773,6 @@ button {
 }
 
 .menuBar .content li a {
-  /* text-decoration: underline; */
   opacity: 1;
 }
 
@@ -1789,7 +1788,6 @@ button {
   position: absolute;
   content: '';
   width: 100%;
-  color: red;
 }
 
 
