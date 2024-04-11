@@ -1131,7 +1131,7 @@ button {
 /* ###################################*/
 
 .path {
-  padding: 2em;
+  padding: 1.5em 2em;
   background-color: var(--secondary-color);
   color: var(--primary-color);
 }
@@ -1703,6 +1703,7 @@ button {
 /* ###################################*/
 .menuBar {
   position: relative;
+  height: 100%;
 }
 
 .menuBar .wrapper {
@@ -1717,15 +1718,12 @@ button {
   justify-content: space-between;
   width: 300px;
   flex: 1;
-  height: 100dvh;
+  min-height: 100dvh;
   border-radius: 0 0 0 20px;
-  /* box-shadow: -15px 5px 15px rgba(0, 0, 0, 0.2); */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-in-out;
 }
 
 .menuBar .wrapper .menu {
-  
   width: 100%;
 }
 
@@ -1959,6 +1957,27 @@ button {
       var(--primary-color) 60%,
       var(--white-color) 40%
     );
+  }
+
+
+    .content .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background: linear-gradient(
+      to bottom,
+      var(--primary-color) 82%,
+      var(--white-color) 18%
+    );
+  }
+
+  .content.scams .wrapper .context .title{
+    font-size: 50px !important;
+  }
+  .content.scams .wrapper .context{
+    width: 80%;
   }
 
   .content .wrapper .context {

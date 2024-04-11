@@ -87,17 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
   menuIcon.addEventListener("click", function () {
     if (menuBar.classList.contains("visible")) {
       menuBar.classList.remove("visible");
-      body.classList.remove("menuBarVisible");
+      // body.classList.remove("menuBarVisible");
     } else {
       menuBar.classList.add("visible");
-      body.classList.add("menuBarVisible");
+      // body.classList.add("menuBarVisible");
     }
   });
 
   document.addEventListener("click", function (event) {
     if (!menuBar.contains(event.target) && !menuIcon.contains(event.target)) {
       menuBar.classList.remove("visible");
-      body.classList.remove("menuBarVisible");
+      // body.classList.remove("menuBarVisible");
     }
   });
 
