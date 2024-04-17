@@ -115,6 +115,10 @@ svg {
   margin: 0 auto;
 }
 
+html section{
+  min-width: 305px;
+}
+
 /* <!--  ============ navbar section  =============== --> */
 
 .navbar .wrapper {
@@ -240,6 +244,7 @@ svg {
   padding: 1em 2em;
   font-family: inherit;
   background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   color: var(--white-color);
   transition: all 0.3s;
   border-radius: 5px;
@@ -248,7 +253,7 @@ svg {
 .navbar .wrapper .right .btn input:hover {
   background-color: var(--white-color);
   color: var(--secondary-dark-color);
-  border: 1px solid var(--white-color);
+  border: 1px solid var(--primary-color);
 }
 
 .navbar .wrapper .right .mbl .icon svg {
@@ -291,11 +296,12 @@ section.navbar {
 .content .wrapper .context .text .title {
   font-size: 64px;
   line-height: 1.3;
+  text-align: center;
 }
 
 .content .wrapper .context .text .para {
-  padding: 1em 0;
-  width: 90%;
+  padding: 1em ;
+  text-align: center;
 }
 
 .content .wrapper .context .text .title span {
@@ -696,7 +702,9 @@ button {
 
 .hero_section {
   padding: 2em 0.5em;
-  background-color: var(--secondary-color);
+  /* background-color: var(--secondary-color); */
+  background-color: var(--white-color);
+  
 }
 
 .hs_2 {
@@ -722,8 +730,12 @@ button {
 }
 
 .hero_one .reference {
-  width: 50%;
+  width: 50%;  
 }
+
+/* .hero_section .reference img{
+  mix-blend-mode: darken;
+} */
 
 .hero_one .content {
   width: 50%;
@@ -731,6 +743,7 @@ button {
   flex-direction: column;
   margin: 1em;
   background-color: var(--secondary-color);
+  background-color: inherit;
   color: var(--primary-color);
 }
 
@@ -1103,6 +1116,7 @@ button {
   max-width: 15%;
   width: fit-content;
 }
+
 
 .footer_section .wrapper.policy ul {
   display: flex;
@@ -1698,9 +1712,8 @@ button {
   color: green;
 }
 
-/* ###################################*/
-/* #        menuBar section          #*/
-/* ###################################*/
+
+
 .menuBar {
   position: relative;
   height: 100%;
@@ -1913,6 +1926,69 @@ button {
   opacity: 1;
 }
 
+
+
+/* ###########################################*/
+/* #        About Us page Our team           #*/
+/* ##########################################*/
+
+.our_team .packets .image img { 
+  object-position: top center;
+}
+
+
+.our_team .packets .title h2{
+  text-align: center;
+  font-size: 1.3em;
+  padding: .3em 0;
+  color: var(--primary-color);
+  transition: all .3s ease-in-out;
+}
+.our_team .packets:hover .title h2{
+  color: slategrey;
+}
+
+/* ###########################################*/
+/* #        Contact Us page          #*/
+/* ##########################################*/
+.content.contact_us{
+  background-color: var(--secondary-color);
+}
+
+.content.contact_us .title{
+  color: var(--primary-color);
+  margin-bottom: .5em;
+}
+
+.content.contact_us .para{
+  color: var(--primary-color);
+  text-align: center;
+  font-size: var(--font-smaller);
+  padding: 1em;
+
+}
+
+.content.contact_us .wrapper .form_box {
+  position: relative;
+  justify-content: center;
+  width: 60%;
+}
+
+.content.contact_us .wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content.contact_us .wrapper .context{
+  height: auto;
+}
+
+.content.contact_us .wrapper{
+  margin-bottom: 5em;
+}
+
 @media screen and (min-width: 992px) {
   .navbar .wrapper .right .mbl {
     display: none;
@@ -1940,11 +2016,6 @@ button {
     transition: 0.3s ease-in-out;
   }
 
-  body.menuBarVisible section:not(.menuBar, .navbar) {
-    /* filter: blur(3px);
-  opacity: .9; */
-    /* position: relative; */
-  }
 
   .content .wrapper {
     display: flex;
@@ -2156,6 +2227,25 @@ button {
   .companies .company_boxes .box .read_more {
     padding: 0 2em;
   }
+
+  .content.contact_us .wrapper .title, .para{
+    background: var(--secondary-color);
+
+  }
+
+    .content.contact_us .wrapper {
+    background: var(--secondary-color) ;
+    }
+
+    .content.contact_us .wrapper .context{
+      margin: 1em 0;
+    }
+
+    .content.contact_us .wrapper .form_box{
+      width: 80%;
+    }
+
+
 }
 
 @media screen and (max-width: 652px) {
