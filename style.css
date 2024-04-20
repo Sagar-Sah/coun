@@ -2013,8 +2013,13 @@ button {
 /* #        get consultancy                  #*/
 /* ###########################################*/
 
-.get_consultation{
-  display: none;
+.get_consultation {
+    display: none;
+}
+
+/* Hide the pop-up section by default */
+.pop_up {
+    display: none;
 }
 
 .get_consultation .wrapper{
@@ -2114,7 +2119,7 @@ button {
   align-items: center;
 }
 
-.get_consultation .wrapper .base .btn{
+.get_consultation .wrapper .base .btn {
   padding: .8em 2em;
   text-transform: capitalize;
   font-size:var(--font-smaller);
@@ -2127,7 +2132,19 @@ button {
   transition: all .3s ease-in-out;
   border-radius: 7px;
 }
-
+.nbtn{
+    padding: .8em 2em;
+    text-transform: capitalize;
+    font-size:var(--font-smaller);
+    font-weight: var(--fw5);
+    font-family: inherit;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    transition: all .3s ease-in-out;
+    border-radius: 7px;
+}
 .get_consultation .wrapper .base .btn:hover{
   background-color: var(--secondary-color);
   border: 1px solid var(--primary-color);
