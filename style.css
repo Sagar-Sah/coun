@@ -2279,8 +2279,34 @@ button {
 
 }
 
+#page{
+  position: relative;
+}
 
+.chat_icon{
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  z-index: 999;
 
+}
+
+.chat_icon .wrapper .icon{
+
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  
+}
+.chat_icon .wrapper .icon svg{
+  color: rgb(255, 225, 0);
+  background-color: yellowgreen;
+  border-radius: 50%;
+  width: 40px;
+  padding: .5em;
+  box-shadow: -2px 2px 15px rgb(0, 0, 0, 0.3);
+  
+}
 
 
 
