@@ -126,70 +126,110 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const getConsultationSection = document.querySelector(".get_consultation");
-  const getSubmitButton = document.querySelector(".get_submit button");
-  const getCloseButton = document.querySelector(".get_close");
-  const options = document.querySelectorAll(".get_consultation .option");
 
-  function openConsultationSection() {
-    console.log("Opening consultation section...");
-    getConsultationSection.classList.add("active");
-  }
 
-  function closeConsultationSection() {
-    console.log("Closing consultation section...");
-    getConsultationSection.classList.remove("active");
-  }
 
-  getSubmitButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    openConsultationSection();
-  });
 
-  getCloseButton.addEventListener("click", function (event) {
-    event.preventDefault();
-    closeConsultationSection();
-  });
 
-  document.addEventListener("click", function (event) {
-    if (!getConsultationSection.contains(event.target)) {
-      closeConsultationSection();
-    }
-  });
 
-  options.forEach((option) => {
-    option.addEventListener("click", function (event) {
-      event.preventDefault();
-      console.log("Option clicked:", option.textContent.trim());
-      options.forEach((opt) => {
-        opt.querySelector("a").classList.remove("active");
+
+
+// Scam Type Section
+document.addEventListener('DOMContentLoaded', function () {
+    const options = document.querySelectorAll('.option');
+    const nextButtons = document.querySelectorAll('.nbtn');
+    const backButton = document.querySelectorAll('.get_consultation .btns .cancel');
+    const sections = document.querySelectorAll('.get_consultation');
+    const popUpSection = document.querySelector('.pop_up');
+    const aionButton = document.getElementById('aion');
+
+
+
+    options.forEach((option) => {
+      option.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("Option clicked:", option.textContent.trim());
+        options.forEach((opt) => {
+          opt.querySelector("a").classList.remove("active");
+        });
+        option.querySelector("a").classList.add("active");
       });
-      option.querySelector("a").classList.add("active");
     });
-  });
+  
+  
+
+    // Function to show selected scam type
+    function showSelectedScamType() {
+        const consultationSection = document.querySelector('.get_consultation.first');
+        consultationSection.classList.remove('hidden');
+    }
+
+    // Function to handle next button click
+    function handleNextButtonClick() {
+        console.log('next button is clicked')
+        const currentSection = this.closest('.get_consultation');
+        const nextSection = currentSection.nextElementSibling;
+        currentSection.style.display = 'none'; // Hide current section
+
+        if (nextSection) {
+            console.log('if')
+            nextSection.style.display = 'block';
+
+        } else {
+            console.log('else')
+            popUpSection.classList.remove('hidden');
+        }
+    }
+
+    // Function to handle back button click
+    function handleBackButtonClick() {
+        const currentSection = this.closest('.get_consultation');
+        const prevSection = currentSection.previousElementSibling;
+        currentSection.style.display = 'none';
+        prevSection.style.display = 'block';
+    }
+
+    // Add event listener to select menu options
+    options.forEach(function (option) {
+        option.addEventListener('click', showSelectedScamType);
+    });
+
+    // Add event listener to next buttons
+    nextButtons.forEach(function (button) {
+        button.addEventListener('click', handleNextButtonClick);
+    });
+
+    // Add event listener to back buttons
+    backButton.forEach(function (button) {
+        button.addEventListener('click', handleBackButtonClick);
+    });
+
+    // Add event listener to pop-up cancel button
+    const cancelButton = popUpSection.querySelector('.cancel');
+    cancelButton.addEventListener('click', function () {
+        popUpSection.classList.add('hidden');
+    });
+
+    // Add event listener to button with ID "aion"
+    aionButton.addEventListener('click', function () {
+        const firstSection = document.querySelector('.get_consultation.first');
+        firstSection.classList.remove('hidden');
+    });
+
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const aionButton = document.getElementById('aion');
+    const firstSection = document.querySelector('.get_consultation.first');
+    const conSection = document.querySelector('.get_consultation');
+    const closeIcon = document.querySelector('.icon.get_close');
+    closeIcon.addEventListener('click', function() {
+        conSection.style.display = 'none';
+    });
+    
+    function showFirstConsultationSection() {
+        firstSection.style.display = 'block';
+    }
 
+    aionButton.addEventListener('click', showFirstConsultationSection);
 
-
-const overlay = document.querySelector(".overlay");
-const modal = document.querySelector(".pop_up");
-
-// Function to show modal and overlay
-function showModal() {
-  overlay.classList.add("active");
-  modal.classList.add("active");
-}
-
-// Function to hide modal and overlay
-function hideModal() {
-  overlay.classList.remove("active");
-  modal.classList.remove("active");
-}
-
-// Event listeners to show/hide modal
-document.querySelector(".cancel").addEventListener("click", hideModal);
-document.querySelector(".btn").addEventListener("click", hideModal);
-
-// Show modal when desired (e.g., on button click)
-document.querySelector("#openModalButton").addEventListener("click", showModal);
+});
